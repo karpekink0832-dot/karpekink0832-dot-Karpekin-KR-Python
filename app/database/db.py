@@ -1,11 +1,18 @@
 from datetime import datetime
-
+import os
+from pathlib import Path
 from sqlalchemy import Integer, String, Boolean, ForeignKey, Text, Date
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
 
-engine = create_async_engine(f"sqlite+aiosqlite:///database/database.db")
+BASE_DIR = Path(__file__).parent.parent  # поднимитесь на нужный уровень
+
+DATABASE_PATH = BASE_DIR / "database" / "database.db"
+
+os.makedirs(os.path.dirname(DATABASE_PATH), exist_ok=True)
+
+engine = create_async_engine(f"sqlite+aiosqlite:///{DATABASE_PATH}")
 
 session_maker=async_sessionmaker(bind=engine, expire_on_commit=False)
 
