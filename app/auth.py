@@ -2,7 +2,7 @@ import datetime
 
 import bcrypt
 from fastapi import Depends, HTTPException, status
-
+import jwt
 from fastapi.security import OAuth2PasswordBearer
 from jwt import PyJWTError
 from sqlalchemy.ext.asyncio import AsyncSession
