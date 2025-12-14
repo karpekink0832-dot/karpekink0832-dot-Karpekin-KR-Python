@@ -12,10 +12,10 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.crud import get_course_by_id, get_material_by_counter, get_max_counter_by_course, get_progress_user_material, \
     get_user_by_id
 from app.models import MaterialCreate, MaterialResponse, ProgressResponse, CourseUpdate, MaterialUpdate
-from auth import get_password_hash, get_current_user, authentificate_user, create_token
-from crud import get_user_by_name
-from models import UserResponse, UserCreate, CourseCreate, CourseResponse
-from database.db import create_tables, User, get_session, Course, Material, Progress
+from app.auth import get_password_hash, get_current_user, authentificate_user, create_token
+from app.crud import get_user_by_name
+from app.models import UserResponse, UserCreate, CourseCreate, CourseResponse
+from app.database.db import create_tables, User, get_session, Course, Material, Progress
 
 
 @asynccontextmanager
