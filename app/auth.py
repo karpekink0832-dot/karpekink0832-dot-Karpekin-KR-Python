@@ -4,7 +4,7 @@ import bcrypt
 from fastapi import Depends, HTTPException, status
 import jwt
 from fastapi.security import OAuth2PasswordBearer
-from jwt import PyJWTError
+from jwt.exceptions import PyJWTError
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.crud import get_user_by_name
